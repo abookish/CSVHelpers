@@ -8,7 +8,6 @@ assumptions:
 '''
 if __name__ == "__main__":
     import csv
-    import numpy as np
     import sys
     def formatMoneyString(floatValue, makeAbsolute = True):
         valueToUse = abs(floatValue) if makeAbsolute else floatValue
@@ -57,12 +56,9 @@ if __name__ == "__main__":
                 incrementKeywordCounts(keyword)
         #time to count
         for row in reader:
-            ##column definitions 
             date, amount, description = row[0], float(row[1]), row[4]
             months = int(date.split("/")[0])
-
         
-            #month specific
             if monthFilter:
                 if int(months) == monthNum:
                     monthData = True
@@ -88,4 +84,3 @@ if __name__ == "__main__":
                 print(f"You had {keywordCount} {keyword} purchases{monthString}, totalling {formatMoneyString(keywordSum)} with an average cost of {formatMoneyString(keywordSum/keywordCount)}.") 
         print(f"Most expensive purchase{monthString}: " + mostExpensiveDesc, "which cost " + formatMoneyString(mostExpensiveCost))
 
-    ##todo: actual accumulator, better max, user inpupt for month, keyword search
