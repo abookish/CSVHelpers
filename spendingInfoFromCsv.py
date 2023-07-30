@@ -9,11 +9,7 @@ assumptions:
 if __name__ == "__main__":
     import csv
     import sys
-    def formatMoneyString(floatValue, makeAbsolute = True):
-        valueToUse = abs(floatValue) if makeAbsolute else floatValue
-        return "$" + "%.2f" % round(valueToUse,2)
-        
-
+   
     ##get user input
    
     #month filter ask
@@ -36,7 +32,11 @@ if __name__ == "__main__":
         keywordCount = 0
         mostExpensiveCost = 0
         mostExpensiveDesc = ''
-        #repeated methods
+        #format method
+        def formatMoneyString(floatValue, makeAbsolute = True):
+            valueToUse = abs(floatValue) if makeAbsolute else floatValue
+            return "$" + "%.2f" % round(valueToUse,2)
+        #count methods
         def incrementMostExpensive():
             global mostExpensiveCost
             global mostExpensiveDesc
