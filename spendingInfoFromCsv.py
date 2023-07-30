@@ -15,16 +15,16 @@ if __name__ == "__main__":
     #month filter ask
     print('Want to filter by month? (y/n): ')
     monthFilter = True if input().upper() == "Y" else False
-    print("enter month number: " if monthFilter else "Okay.")
+    print("Enter month number: " if monthFilter else "Okay.")
     monthNum = int(input()) if monthFilter else None
     #keywordAsk
     print('Want to search by keyword? (y/n): ')
     wantsSearch = True if input().upper() == "Y" else False
-    print("Enter keyword" if wantsSearch else "Okay, here are your totals")
+    print("Enter keyword" if wantsSearch else "Okay, here are your totals:")
     keyword = input() if wantsSearch else None
 
     #get csv
-    with open('test.csv', newline='') as file:
+    with open('CreditCard3.csv', newline='') as file:
         reader = csv.reader(file, delimiter = ',')
         monthData = False
         totalSum = 0
@@ -82,5 +82,5 @@ if __name__ == "__main__":
                 print (f"You had no {keyword} purchases{monthString}.")
             else: 
                 print(f"You had {keywordCount} {keyword} purchases{monthString}, totalling {formatMoneyString(keywordSum)} with an average cost of {formatMoneyString(keywordSum/keywordCount)}.") 
-        print(f"Most expensive purchase{monthString}: " + mostExpensiveDesc, "which cost " + formatMoneyString(mostExpensiveCost))
+        print(f"Most expensive purchase{monthString}: {mostExpensiveDesc}, which cost {formatMoneyString(mostExpensiveCost)}.")
 
